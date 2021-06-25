@@ -52,6 +52,11 @@ var (
 	AddToScheme = SchemeBuilder.AddToScheme
 )
 
+func init() {
+	SchemeBuilder.Register(&Cluster{}, &ClusterList{})
+	SchemeBuilder.Register(&S3Location{}, &S3LocationList{})
+}
+
 func Resource(resource string) schema.GroupResource {
 	return SchemeGroupVersion.WithResource(resource).GroupResource()
 }

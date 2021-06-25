@@ -32,6 +32,10 @@ func (c *FakeStoreV1alpha1) Clusters(namespace string) v1alpha1.ClusterInterface
 	return &FakeClusters{c, namespace}
 }
 
+func (c *FakeStoreV1alpha1) S3Locations(namespace string) v1alpha1.S3LocationInterface {
+	return &FakeS3Locations{c, namespace}
+}
+
 // RESTClient returns a RESTClient that is used to communicate
 // with API server by this client implementation.
 func (c *FakeStoreV1alpha1) RESTClient() rest.Interface {

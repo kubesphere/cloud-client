@@ -55,6 +55,8 @@ func (f *sharedInformerFactory) ForResource(resource schema.GroupVersionResource
 	// Group=store.kubesphere.cloud, Version=v1alpha1
 	case v1alpha1.SchemeGroupVersion.WithResource("clusters"):
 		return &genericInformer{resource: resource.GroupResource(), informer: f.Store().V1alpha1().Clusters().Informer()}, nil
+	case v1alpha1.SchemeGroupVersion.WithResource("s3locations"):
+		return &genericInformer{resource: resource.GroupResource(), informer: f.Store().V1alpha1().S3Locations().Informer()}, nil
 
 	}
 

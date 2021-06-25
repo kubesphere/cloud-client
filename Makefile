@@ -13,6 +13,9 @@ else
 GOBIN=$(shell go env GOBIN)
 endif
 
+.PHONY: all
+all: manifests clientset fmt vet
+
 # Run go fmt against code
 fmt:
 	gofmt -w ./apis

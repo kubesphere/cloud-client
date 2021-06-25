@@ -27,6 +27,7 @@ import (
 type StoreV1alpha1Interface interface {
 	RESTClient() rest.Interface
 	ClustersGetter
+	S3LocationsGetter
 }
 
 // StoreV1alpha1Client is used to interact with features provided by the store.kubesphere.cloud group.
@@ -36,6 +37,10 @@ type StoreV1alpha1Client struct {
 
 func (c *StoreV1alpha1Client) Clusters(namespace string) ClusterInterface {
 	return newClusters(c, namespace)
+}
+
+func (c *StoreV1alpha1Client) S3Locations(namespace string) S3LocationInterface {
+	return newS3Locations(c, namespace)
 }
 
 // NewForConfig creates a new StoreV1alpha1Client for the given config.

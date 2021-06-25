@@ -25,3 +25,11 @@ type ClusterListerExpansion interface{}
 // ClusterNamespaceListerExpansion allows custom methods to be added to
 // ClusterNamespaceLister.
 type ClusterNamespaceListerExpansion interface{}
+
+// S3LocationListerExpansion allows custom methods to be added to
+// S3LocationLister.
+type S3LocationListerExpansion interface{}
+
+// S3LocationNamespaceListerExpansion allows custom methods to be added to
+// S3LocationNamespaceLister.
+type S3LocationNamespaceListerExpansion interface{}

@@ -21,15 +21,6 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
-const (
-	ResourceKindCluster      = "Cluster"
-	ResourcesSingularCluster = "cluster"
-	ResourcesPluralCluster   = "clusters"
-	ClusterGroup             = "store.kubesphere.cloud/group"
-	HostCluster              = "cluster-role.kubesphere.cloud/host"
-	Finalizer                = "finalizer.store.kubesphere.cloud"
-)
-
 type ClusterSpec struct {
 	// Desired state of the cluster
 	Enable bool `json:"enable,omitempty"`
@@ -132,8 +123,4 @@ type ClusterList struct {
 	metav1.TypeMeta `json:",inline"`
 	metav1.ListMeta `json:"metadata,omitempty"`
 	Items           []Cluster `json:"items"`
-}
-
-func init() {
-	SchemeBuilder.Register(&Cluster{}, &ClusterList{})
 }

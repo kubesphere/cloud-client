@@ -51,6 +51,16 @@ spec:
                   kubernetesAPIEndpoint:
                     description: 'Kubernetes API Server endpoint. Example: https://10.10.0.1:6443 Should provide this field explicitly if connection type is direct.'
                     type: string
+                  secret:
+                    description: Service account secret
+                    properties:
+                      caCert:
+                        type: string
+                      namespace:
+                        type: string
+                      token:
+                        type: string
+                    type: object
                   type:
                     description: type defines how host cluster will connect to host cluster ConnectionTypeDirect means direct connection
                     type: string

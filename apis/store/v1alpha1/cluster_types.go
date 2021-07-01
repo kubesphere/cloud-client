@@ -39,6 +39,14 @@ const (
 	//ConnectionTypeProxy  ConnectionType = "proxy"
 )
 
+type Secret struct {
+	CACert string `json:"caCert,omitempty"`
+
+	Namespace string `json:"namespace,omitempty"`
+
+	Token string `json:"token,omitempty"`
+}
+
 type Connection struct {
 	// type defines how host cluster will connect to host cluster
 	// ConnectionTypeDirect means direct connection
@@ -50,7 +58,12 @@ type Connection struct {
 
 	// KubeConfig content used to connect to cluster apis server
 	// Should provide this field explicitly if connection type is direct.
+	// +optional
 	KubeConfig []byte `json:"kubeconfig,omitempty"`
+
+	// Service account secret
+	// +optional
+	Secret *Secret `json:"secret,omitempty"`
 }
 
 type ClusterConditionType string
